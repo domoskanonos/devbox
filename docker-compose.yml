@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  mariadb:
+  postgres:
     image: postgres
     ports:
       - "5432:5432"
@@ -10,10 +10,18 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - "/_store/docker/postgresql:/var/lib/postgresql"
+  storage-server:
+    image: domoskanonos/storage-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/_store/storage-server:/app"
+    environment:
+      JAVA_TOOL_OPTIONS: -Dspring.datasource.username=user -Dspring.datasource.password=pwd
   crudyboy:
     image: domoskanonos/crudyboy
     ports:
-      - "8080:8080"
+      - "8080:8081"
     environment:
       CONNECTION_STRING: postgresql://localhost/${POSTGRES_DB}?user=${POSTGRES_USER}&password=${POSTGRES_PASSWORD}
       DATABASE_NAME: ${POSTGRES_DB}
