@@ -13,15 +13,8 @@ services:
   storage-server:
     image: domoskanonos/storage-server
     ports:
-      - "8080:8080"
+      - "8095:8080"
     volumes:
       - "/_store/storage-server:/app"
     environment:
-      JAVA_TOOL_OPTIONS: -Dspring.datasource.username=user -Dspring.datasource.password=pwd
-  crudyboy:
-    image: domoskanonos/crudyboy
-    ports:
-      - "8080:8081"
-    environment:
-      CONNECTION_STRING: postgresql://localhost/${POSTGRES_DB}?user=${POSTGRES_USER}&password=${POSTGRES_PASSWORD}
-      DATABASE_NAME: ${POSTGRES_DB}
+      JAVA_TOOL_OPTIONS: -Dspring.datasource.username=${POSTGRES_USER} -Dspring.datasource.password=${POSTGRES_PASSWORD} -Dstorage.path=/app/storage-server -Dserver.port=8080
