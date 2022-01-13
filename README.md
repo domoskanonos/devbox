@@ -9,3 +9,10 @@ project template for new projects
     environment:
       CONNECTION_STRING: postgresql://localhost/${POSTGRES_DB}?user=${POSTGRES_USER}&password=${POSTGRES_PASSWORD}
       DATABASE_NAME: ${POSTGRES_DB}
+
+
+
+
+      POSTGRES_PASSWORD=pwd
+POSTGRES_USER=user
+POSTGRES_DB=crudyboy
