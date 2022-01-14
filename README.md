@@ -15,4 +15,3 @@ project template for new projects
 
       POSTGRES_PASSWORD=pwd
 POSTGRES_USER=user
-POSTGRES_DB=crudyboy
