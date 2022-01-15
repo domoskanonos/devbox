@@ -15,3 +15,9 @@ project template for new projects
 
       POSTGRES_PASSWORD=pwd
 POSTGRES_USER=user
+
+
+
+docker-compose -f docker-compose-local.yml up
+
+docker-compose -f docker-compose-local.yml down
