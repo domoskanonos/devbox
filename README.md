@@ -17,7 +17,10 @@ project template for new projects
 POSTGRES_USER=user
 
 
-
+## 
 docker-compose -f docker-compose-local.yml up
 
 docker-compose -f docker-compose-local.yml down
+
+## daemon mode
+docker-compose -f docker-compose-local.yml up -d
