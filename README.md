@@ -24,3 +24,18 @@ docker-compose -f docker-compose-local.yml down
 
 ## daemon mode
 docker-compose -f docker-compose-local.yml up -d
+
+
+open api gen:
+
+docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -i /local/petstore.yaml -g go -o /local/out/go
+
+
+https://openapi-generator.tech/docs/installation/
+
+
+
+FUnktioneirt: jAva muss vorhanden sein im Path:
+
+npx @openapitools/openapi-generator-cli generate -i http://localhost:8094/v3/api-docs -g typescript -o ./tmp/test/
+
