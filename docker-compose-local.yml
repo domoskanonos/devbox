@@ -2,6 +2,7 @@ version: '3.2'
 services:
   postgres:
     image: postgres
+    container_name: postgres
     networks:
       - project
     ports:
@@ -12,12 +13,35 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./postgresql-init-local.sql:/docker-entrypoint-initdb.d/postgresql-init-local.sql
-  postgres:
+  verdaccio:
     image: verdaccio/verdaccio
     networks:
       - project
     ports:
-      - "4873:4873"
+      - "8093:4873"
+  server:
+    image: gitea/gitea:1.15.10
+    container_name: gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=postgres
+      - GITEA__database__HOST=postgres:5432
+      - GITEA__database__NAME=${POSTGRES_DB}
+      - GITEA__database__USER=${POSTGRES_USER}
+      - GITEA__database__PASSWD=${POSTGRES_PASSWORD}
+    restart: always
+    networks:
+      - project
+    volumes:
+      - /_store/gitea/data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:22"
+    depends_on:
+      - postgres
   storage-server:
     image: domoskanonos/storage-server
     networks:
@@ -46,5 +70,5 @@ services:
       REQUEST_HEADER_ACCESS_CONTROL_ALLOW_HEADERS: "X-Requested-With,content-type"
       REQUEST_HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS: "true"
 networks:
-  project: 
+  project:
     driver: bridge
