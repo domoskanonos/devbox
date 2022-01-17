@@ -13,6 +13,12 @@ project template for new projects
 
 
 
+CREATE USER gitea WITH PASSWORD 'gitea';
+CREATE DATABASE gitea;
+GRANT ALL PRIVILEGES ON DATABASE gitea TO gitea;
+
+
+
       POSTGRES_PASSWORD=pwd
 POSTGRES_USER=user
 
