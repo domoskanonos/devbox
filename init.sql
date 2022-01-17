@@ -6,7 +6,7 @@ GRANT ALL PRIVILEGES ON DATABASE gitea TO gitea;
 
 CREATE TABLE IF NOT EXISTS meta
 (
-    _id  INT  NOT NULL,
+    _id SERIAL,
     data JSON NOT NULL,
     PRIMARY KEY (_id)
 );
