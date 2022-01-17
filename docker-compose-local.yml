@@ -12,6 +12,12 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./postgresql-init-local.sql:/docker-entrypoint-initdb.d/postgresql-init-local.sql
+  postgres:
+    image: verdaccio/verdaccio
+    networks:
+      - project
+    ports:
+      - "4873:4873"
   storage-server:
     image: domoskanonos/storage-server
     networks:
