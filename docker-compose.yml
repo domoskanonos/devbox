@@ -25,7 +25,7 @@ services:
     environment:
         JAVA_TOOL_OPTIONS: -Dspring.profiles.active=qa -Dspring.datasource.url=jdbc:postgresql://postgres:5432/${POSTGRES_DB} -Dspring.datasource.username=${POSTGRES_USER} -Dspring.datasource.password=${POSTGRES_PASSWORD} -Dstorage.path=/app/storage-server -Dserver.port=8080
   crudyboy:
-    image: domoskanonos/crudyboy:1.0.5
+    image: domoskanonos/crudyboy:1.0.6
     container_name: crudyboy
     networks:
       - project
