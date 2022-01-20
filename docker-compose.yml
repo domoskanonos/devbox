@@ -13,52 +13,20 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-  verdaccio:
-    image: verdaccio/verdaccio
-    networks:
-      - project
-    ports:
-      - "8093:4873"
-    #volumes:
-      #- "/_store/verdaccio/config:/verdaccio/conf"
-      #- "/_store/verdaccio/storage:/verdaccio/storage"
-      #- "/_store/verdaccio/plugins:/verdaccio/plugins"
-  server:
-    image: gitea/gitea:1.15.10
-    container_name: gitea
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-      - GITEA__database__DB_TYPE=postgres
-      - GITEA__database__HOST=postgres:5432
-      - GITEA__database__NAME=gitea
-      - GITEA__database__USER=gitea
-      - GITEA__database__PASSWD=gitea
-    restart: always
-    networks:
-      - project
-    volumes:
-      - /_store/gitea/data:/data
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - "3000:3000"
-      - "222:22"
-    depends_on:
-      - postgres
   storage-server:
+    container_name: storage-server
     image: domoskanonos/storage-server
     networks:
       - project
     ports:
-      - "8094:8080"
+        - "8094:8080"
+    #volumes:
+      #  - "/_store/storage-server:/app"
     environment:
-      JAVA_TOOL_OPTIONS: -Dstorage.path=/app/storage-server
-        -Dspring.datasource.username=${POSTGRES_USER}
-        -Dspring.datasource.password=${POSTGRES_PASSWORD}
-        -Dspring.datasource.url=jdbc:h2:mem:${POSTGRES_DB} -Dserver.port=8080
+        JAVA_TOOL_OPTIONS: -Dspring.profiles.active=qa -Dspring.datasource.url=jdbc:postgresql://postgres:5432/${POSTGRES_DB} -Dspring.datasource.username=${POSTGRES_USER} -Dspring.datasource.password=${POSTGRES_PASSWORD} -Dstorage.path=/app/storage-server -Dserver.port=8080
   crudyboy:
-    image: domoskanonos/crudyboy:1.0.3
+    image: domoskanonos/crudyboy:1.0.5
+    container_name: crudyboy
     networks:
       - project
     ports:
@@ -77,6 +45,7 @@ services:
       REQUEST_HEADER_ACCESS_CONTROL_ALLOW_HEADERS: "X-Requested-With,content-type"
       REQUEST_HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS: "true"
   web:
+    container_name: web
     image: nginx
     networks:
       - project
