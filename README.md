@@ -1,5 +1,5 @@
 
-![Alt text](./assets/logo-ink.svg|width=200)
+![Alt text](./assets/logo-ink.svg)|width=200
 
 
 # project
