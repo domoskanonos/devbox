@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="102.95103mm"
+   height="102.95103mm"
+   viewBox="0 0 102.95103 102.95103"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="logo-ink.svg"
+   inkscape:export-filename="C:\Users\KKW-PC\Desktop\logo-ink.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,20 +27,25 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="351.43206"
-     inkscape:cy="475.5293"
+     inkscape:cx="-40.658639"
+     inkscape:cy="327.74398"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="svg5"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-56.369797,-83.926494)">
     <rect
        style="fill:#2c4776;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect846"
@@ -68,9 +76,9 @@
       <circle
          style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path1861"
-         cx="78.738235"
-         cy="130.0943"
-         r="3.3678696" />
+         cx="78.746902"
+         cy="131.5676"
+         r="4.4096665" />
     </g>
     <g
        id="g2057-3"
@@ -87,9 +95,9 @@
       <circle
          style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path1861-5"
-         cx="78.738235"
-         cy="130.0943"
-         r="3.3678696" />
+         cx="78.761154"
+         cy="131.35693"
+         r="4.2608376" />
     </g>
     <g
        id="g2057-8"
@@ -103,12 +111,13 @@
          x="117.17878"
          y="-80.228554"
          transform="matrix(-0.00112334,0.99999937,-0.99999973,-7.405739e-4,0,0)" />
-      <circle
+      <ellipse
          style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path1861-2"
-         cx="78.738235"
-         cy="130.0943"
-         r="3.3678696" />
+         cx="78.717651"
+         cy="131.45053"
+         rx="4.3271332"
+         ry="4.3269658" />
     </g>
     <g
        id="g2057-8-7"
@@ -125,9 +134,9 @@
       <circle
          style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path1861-2-6"
-         cx="78.738235"
-         cy="130.0943"
-         r="3.3678696" />
+         cx="78.75769"
+         cy="131.35699"
+         r="4.260838" />
     </g>
   </g>
 </svg>
