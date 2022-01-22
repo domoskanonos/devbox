@@ -1,6 +1,5 @@
 
-![Alt text](./assets/logo-ink.svg)|width=200
-![test image size]<img src="./assets/logo-ink.svg" width="400" height="790">
+![test image size]<img src="./assets/logo-ink.svg" width="400">
 
 # project
 project template for new projects
