@@ -27,14 +27,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="-40.658639"
-     inkscape:cy="327.74398"
+     inkscape:cx="100.76271"
+     inkscape:cy="386.43385"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5"
+     inkscape:current-layer="layer1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -54,32 +54,31 @@
        x="135.84824"
        y="-19.250658"
        transform="rotate(45.77695)" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       id="rect1570"
-       width="16.290953"
-       height="15.647753"
-       x="99.636093"
-       y="127.27255" />
     <g
-       id="g2057"
-       transform="rotate(-44.662951,75.529742,107.32355)"
-       style="stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">
+       id="g1108">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1570-7"
          width="16.764465"
          height="2.6409111"
-         x="117.17878"
-         y="-80.228554"
-         transform="matrix(-0.00112334,0.99999937,-0.99999973,-7.405739e-4,0,0)" />
+         x="139.35406"
+         y="16.996935"
+         transform="matrix(0.70213551,0.71204335,-0.71177454,0.702408,0,0)" />
       <circle
          style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path1861"
-         cx="78.746902"
-         cy="131.5676"
-         r="4.4096665" />
+         cx="-18.503469"
+         cy="153.67087"
+         r="4.4096665"
+         transform="rotate(-44.662951)" />
     </g>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#4c7ccc;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1861-7"
+       cx="-18.675138"
+       cy="171.54852"
+       r="6.7950468"
+       transform="rotate(-44.662951)" />
     <g
        id="g2057-3"
        transform="rotate(-133.95999,90.035556,136.32306)"
