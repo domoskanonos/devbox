@@ -1,62 +1,30 @@
-version: '3.2'
+version: "3.2"
 services:
-  postgres:
-    image: postgres
-    container_name: postgres
-    networks:
-      - devbox
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_DB: ${POSTGRES_DB}
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-  storage-server:
-    container_name: storage-server
-    image: domoskanonos/storage-server
-    networks:
-      - devbox
-    ports:
-        - "8094:8080"
-    #volumes:
-      #  - "/_store/storage-server:/app"
-    environment:
-        JAVA_TOOL_OPTIONS: -Dspring.profiles.active=qa -Dspring.datasource.url=jdbc:postgresql://postgres:5432/${POSTGRES_DB} -Dspring.datasource.username=${POSTGRES_USER} -Dspring.datasource.password=${POSTGRES_PASSWORD} -Dstorage.path=/app/storage-server -Dserver.port=8080
-  crudyboy:
-    image: domoskanonos/crudyboy:1.0.7
-    container_name: crudyboy
-    networks:
-      - devbox
-    ports:
-      - "8095:8080"
-    environment:
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_USER: ${POSTGRES_USER}
-      DB_PASSWORD: ${POSTGRES_PASSWORD}
-      DB_NAME: ${POSTGRES_DB}
-      PORT: 8080
-      CUSTOM_CSS: .customCss {}
-      CUSTOM_CSS_URL: https://myserver/my-custom.css
-      REQUEST_HEADER_ACCESS_CONTROL_ALLOW_ORIGIN: "*"
-      REQUEST_HEADER_ACCESS_CONTROL_ALLOW_METHODS: "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-      REQUEST_HEADER_ACCESS_CONTROL_ALLOW_HEADERS: "X-Requested-With,content-type"
-      REQUEST_HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS: "true"
   web:
     container_name: web
     image: nginx
     networks:
       - devbox
     volumes:
-      - ./nginx/html:/usr/share/nginx/html
-      #- ./templates:/etc/nginx/templates
+      - /_store/nginx/html:/usr/share/nginx/html
+      - /_store/nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "8080:80"
+      - "80:80"
     environment:
       #- NGINX_HOST=localhost
       - NGINX_PORT=80
+  postgrest:
+    container_name: postgrest
+    image: postgrest/postgrest
+    networks:
+      - devbox
+    ports:
+      - "3000:3000"
+    environment:
+      - PGRST_DB_URI=${PGRST_DB_URI}
+      - PGRST_JWT_SECRET=${JWT_SECRET}
+      - PGRST_DB_SCHEMA=public
+      - PGRST_DB_ANON_ROLE=web_anonym
 networks:
   devbox:
     driver: bridge
