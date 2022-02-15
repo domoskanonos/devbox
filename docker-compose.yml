@@ -7,10 +7,11 @@ services:
       - devbox
     volumes:
       - /_store/nginx/html:/usr/share/nginx/html
-      - /_store/nginx/nginx.conf:/etc/nginx/nginx.conf
-      #- /_store/nginx/sites-enabled/default:/etc/nginx/sites-enabled/default
+      - /_store/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - /_store/nginx/certs/:/etc/nginx/certs/
     ports:
       - "80:80"
+      - "443:443"
     environment:
       #- NGINX_HOST=localhost
       - NGINX_PORT=80
@@ -26,6 +27,18 @@ services:
       - PGRST_JWT_SECRET=${JWT_SECRET}
       - PGRST_DB_SCHEMA=public
       - PGRST_DB_ANON_ROLE=web_anonym
+#  keyclock:
+#    container_name: keyclock
+#    image: jboss/keycloak
+#    networks:
+#      - devbox
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+#      - KEYCLOAK_USER=root
+#      - PGRST_DB_SCHEMA=public
+#      - PGRST_DB_ANON_ROLE=web_anonym
 networks:
   devbox:
     driver: bridge
