@@ -8,7 +8,8 @@ services:
     volumes:
       - /_store/nginx/html:/usr/share/nginx/html
       - /_store/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      - /_store/nginx/certs/:/etc/nginx/certs/
+      - /_store/letsencrypt/certs/:/etc/nginx/ssl:ro
+      - /_store/letsencrypt/data:/var/www/certbot:ro
     ports:
       - "80:80"
       - "443:443"
