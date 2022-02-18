@@ -28,18 +28,18 @@ services:
       - PGRST_JWT_SECRET=${JWT_SECRET}
       - PGRST_DB_SCHEMA=public
       - PGRST_DB_ANON_ROLE=web_anonym
-#  keyclock:
-#    container_name: keyclock
-#    image: jboss/keycloak
-#    networks:
-#      - devbox
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
-#      - KEYCLOAK_USER=root
-#      - PGRST_DB_SCHEMA=public
-#      - PGRST_DB_ANON_ROLE=web_anonym
+  keyclock:
+    container_name: keyclock
+    image: jboss/keycloak
+    networks:
+      - devbox
+    ports:
+      - "8443:8443"
+    environment:
+      - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+      - KEYCLOAK_USER=root
+      - PGRST_DB_SCHEMA=public
+      - PGRST_DB_ANON_ROLE=web_anonym
 networks:
   devbox:
     driver: bridge
