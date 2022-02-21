@@ -1,4 +1,4 @@
-ALTER DATABASE nidoca SET "app.jwt_secret" TO '<jwt secret>';
+--- braucht man das, wenn man die var PGRST_DB_CONFIG über DOcker setzt ? ALTER DATABASE nidoca SET "pgrst.jwt_secret" TO '<jwt secret>';
 
 -- login should be on your exposed schema
 create or replace function
@@ -14,7 +14,7 @@ begin
   end if;
 
   select basic_auth.sign(
-      row_to_json(r), current_setting('app.jwt_secret')
+      row_to_json(r), current_setting('pgrst.jwt_secret')
     ) as token
     from (
       select _role as role, login.email as email,
